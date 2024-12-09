@@ -51,3 +51,13 @@ jobs:
 
       - name: Run your script
         run: bash script3.sh
+  
+  hello-world-job-4:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run your script
+        run: bash script4.sh
