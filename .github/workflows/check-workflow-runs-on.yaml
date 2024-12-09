@@ -35,8 +35,9 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name:  Run Python script
-      run: |
+    - name: Run your script
+          bash script1.sh
+
 
   hello-world-job-2:
     runs-on: windows-latest
@@ -50,5 +51,5 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name:  Run Python script
-      run: |
+    - name: Run your script
+          bash script2.sh
