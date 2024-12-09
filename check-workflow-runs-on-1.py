@@ -31,12 +31,8 @@ runner2_start_event = threading.Event()
 stop_event = threading.Event()
 
 # Create runners
-runner1 = Runner("Runner 1", runner1_start_event, stop_event)
-runner2 = Runner("Runner 2", runner2_start_event, stop_event)
-
-# set environment variable
-runner1 = ubuntu-latest
-runner2 = windows-latest
+runner1 = Runner("ubuntu-latest", runner1_start_event, stop_event)
+runner2 = Runner("windows-latest", runner2_start_event, stop_event)
 
 # Start runners
 runner1.start()
