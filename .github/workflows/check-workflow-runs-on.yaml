@@ -1,41 +1,43 @@
 name: Script1
 on:
- push:
-   branches:
-   - main
- workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
   python-script:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-    - name:  Run Python script
-      run: |
-        python3 check-workflow-runs-on.py
+      - name: Run Python script
+        run: |
+          python3 check-workflow-runs-on.py
   
   hello-world-job-1:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        run: |
-      - name: Run your script
-          bash script1.sh
+        uses: actions/checkout@v2
 
+      - name: Run your script
+        run: bash script1.sh
 
   hello-world-job-2:
     runs-on: windows-latest
 
     steps:
       - name: Checkout code
-        run: |
+        uses: actions/checkout@v2
+
       - name: Run your script
-          bash script2.sh
+        run: bash script2.sh
