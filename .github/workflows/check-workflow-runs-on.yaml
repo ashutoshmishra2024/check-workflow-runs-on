@@ -25,15 +25,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Run your script
+      - name: Checkout code
+        run: |
+      - name: Run your script
           bash script1.sh
 
 
@@ -41,13 +35,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Run your script
+      - name: Checkout code
+        run: |
+      - name: Run your script
           bash script2.sh
