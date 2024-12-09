@@ -19,7 +19,7 @@ class Runner(threading.Thread):
             try:
                 job = job_queue.get(timeout=1)
                 print(f"{self.name} is executing job {job}")
-                time.sleep(2)  # Simulate job execution time
+                time.sleep(60)  # Simulate job execution time
                 print(f"{self.name} has completed job {job}")
                 job_queue.task_done()
             except queue.Empty:
