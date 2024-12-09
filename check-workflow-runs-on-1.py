@@ -1,6 +1,7 @@
 import threading
 import queue
 import time
+import os
 
 # Define a queue to hold the jobs
 job_queue = queue.Queue()
@@ -19,20 +20,24 @@ class Runner(threading.Thread):
             try:
                 job = job_queue.get(timeout=1)
                 print(f"{self.name} is executing job {job}")
-                time.sleep(60)  # Simulate job execution time
+                time.sleep(2)  # Simulate job execution time
                 print(f"{self.name} has completed job {job}")
                 job_queue.task_done()
             except queue.Empty:
                 break
+
+# Set environment variables for runners
+os.environ['RUNNER1_NAME'] = 'Runner 1'
+os.environ['RUNNER2_NAME'] = 'Runner 2'
 
 # Create events to control the runners
 runner1_start_event = threading.Event()
 runner2_start_event = threading.Event()
 stop_event = threading.Event()
 
-# Create runners
-runner1 = Runner("ubuntu-latest", runner1_start_event, stop_event)
-runner2 = Runner("windows-latest", runner2_start_event, stop_event)
+# Create runners using environment variables
+runner1 = Runner(os.getenv('RUNNER1_NAME'), runner1_start_event, stop_event)
+runner2 = Runner(os.getenv('RUNNER2_NAME'), runner2_start_event, stop_event)
 
 # Start runners
 runner1.start()
@@ -48,9 +53,12 @@ runner1_start_event.set()
 # Wait for Runner 1 to finish all jobs
 job_queue.join()
 
-# Stop Runner 1 and start Runner 2
+# Stop Runner 1
 stop_event.set()
 runner1.join()
+
+# Wait for 1 minute before starting Runner 2
+time.sleep(60)
 
 # Reset stop event for Runner 2
 stop_event.clear()
