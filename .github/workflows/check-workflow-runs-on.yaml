@@ -1,6 +1,5 @@
 name: Run Script
 on:
-
   push:
     branches:
       - main
