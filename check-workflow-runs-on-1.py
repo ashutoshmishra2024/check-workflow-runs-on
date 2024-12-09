@@ -27,8 +27,8 @@ class Runner(threading.Thread):
                 break
 
 # Set environment variables for runners
-os.environ['RUNNER1_NAME'] = 'Runner 1'
-os.environ['RUNNER2_NAME'] = 'Runner 2'
+os.environ['ubuntu-latest'] = 'Runner 1'
+os.environ['windows-latest'] = 'Runner 2'
 
 # Create events to control the runners
 runner1_start_event = threading.Event()
@@ -36,8 +36,8 @@ runner2_start_event = threading.Event()
 stop_event = threading.Event()
 
 # Create runners using environment variables
-runner1 = Runner(os.getenv('RUNNER1_NAME'), runner1_start_event, stop_event)
-runner2 = Runner(os.getenv('RUNNER2_NAME'), runner2_start_event, stop_event)
+runner1 = Runner(os.getenv('ubuntu-latest'), runner1_start_event, stop_event)
+runner2 = Runner(os.getenv('windows-latest'), runner2_start_event, stop_event)
 
 # Start runners
 runner1.start()
