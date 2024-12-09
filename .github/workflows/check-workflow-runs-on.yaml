@@ -1,6 +1,5 @@
 name: Script1
 
-
 on:
  push:
    branches:
