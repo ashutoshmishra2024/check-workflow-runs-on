@@ -22,8 +22,8 @@ class Runner(threading.Thread):
             job_queue.task_done()
 
 # Create runners
-runner1 = Runner("Runner 1")
-runner2 = Runner("Runner 2")
+runner1 = Runner("ubuntu-latest")
+runner2 = Runner("windows-latest")
 
 # Start runners
 runner1.start()
