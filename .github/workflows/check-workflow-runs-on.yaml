@@ -1,4 +1,4 @@
-name: Script1
+name: Run Script
 on:
   push:
     branches:
@@ -41,3 +41,13 @@ jobs:
 
       - name: Run your script
         run: bash script2.sh
+        
+  hello-world-job-3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run your script
+        run: bash script3.sh
