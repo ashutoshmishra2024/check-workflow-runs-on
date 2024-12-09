@@ -44,7 +44,7 @@ runner1.start()
 runner2.start()
 
 # Add jobs to the queue
-for job in range(1, 11):
+for job in range(1, 5):
     job_queue.put(job)
 
 # Start Runner 1
@@ -64,7 +64,7 @@ time.sleep(60)
 stop_event.clear()
 
 # Add more jobs to the queue for Runner 2
-for job in range(11, 21):
+for job in range(6, 10):
     job_queue.put(job)
 
 # Start Runner 2
