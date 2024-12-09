@@ -6,6 +6,22 @@ on:
    - main
  workflow_dispatch:
 jobs:
+  python-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name:  Run Python script
+      run: |
+        python3 check-workflow-runs-on.py
+  
   hello-world-job-1:
     runs-on: ubuntu-latest
 
