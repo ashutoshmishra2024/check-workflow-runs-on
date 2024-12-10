@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Python script
         run: |
-          python3 check-workflow-runs-on-1.py
+          python3 check-workflow-runs-on.py
   
   hello-world-job-1:
     runs-on: ubuntu-latest
